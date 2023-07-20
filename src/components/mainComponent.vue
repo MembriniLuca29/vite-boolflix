@@ -35,7 +35,10 @@ export default {
         else{
             return 'https://image.tmdb.org/t/p/w342/' + poster;
         }
-    }
+    },
+    roundedVoteAverage(voteAverage) {
+    return Math.ceil(voteAverage / 2); 
+  },
 }
 }
 </script>
@@ -57,7 +60,10 @@ export default {
             <li>
               <img :src="getFlag(movie.original_language)" :alt="movie.original_language" class="language-flag">
             </li>
-            <li>{{ movie.vote_average }}</li>
+            <li><span>
+          <i v-for="star in roundedVoteAverage(movie.vote_average)" :key="star" class="fas fa-star"></i>
+          <i v-for="star in 5 - roundedVoteAverage(movie.vote_average)" :key="star" class="far fa-star"></i>
+        </span></li>
           </ul>
       </div>
       <div class="title">
@@ -75,7 +81,10 @@ export default {
             <li>
               <img :src="getFlag(serie.original_language)" :alt="serie.original_language" class="language-flag">
             </li>
-            <li>{{ serie.vote_average }}</li>
+            <li><span>
+          <i v-for="star in roundedVoteAverage(serie.vote_average)" :key="star" class="fas fa-star"></i>
+          <i v-for="star in 5 - roundedVoteAverage(serie.vote_average)" :key="star" class="far fa-star"></i>
+        </span></li>
           </ul>
       </div>
     </div>
@@ -128,6 +137,7 @@ li{
     text-align: center;
     img{
         height: 50px;
+        padding: 20px 0;
     }
 }
 }
