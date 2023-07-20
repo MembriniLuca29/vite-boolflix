@@ -14,6 +14,7 @@ export default {
 
 <template>
   <div class="header-container">
+    <div class="logo"><h1>BOOLFLIX</h1></div>
 <input type="text" placeholder="ricerca..." v-model="store.searchText">
 <button type="button" @click="$emit('performSearch')">cerca</button>
   </div>
@@ -23,10 +24,16 @@ export default {
 .header-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    
     background-color: black;
     height: 200px;
     width: 100%;
+    .logo{
+        color: red;
+        width: 40%;
+        padding-left: 30px;
+        font-size: 2rem;
+    }
     input{
         padding: 10px 30px 10px 10px;
         font-size: 1.5rem;

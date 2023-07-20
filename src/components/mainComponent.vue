@@ -125,6 +125,7 @@ margin-top: 20px;
 margin-bottom: 10px;
 position: relative;
 ul{
+    max-height: 500px;
     list-style: none;
     padding: 0;
     position: absolute;
@@ -133,7 +134,7 @@ ul{
 }
 li{
     list-style: none;
-    font-size: 2.0rem;
+    font-size: 1.7rem;
     text-align: center;
     img{
         height: 50px;
