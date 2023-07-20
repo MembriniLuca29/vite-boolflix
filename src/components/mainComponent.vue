@@ -35,6 +35,7 @@ export default {
         <div class="title"><h2>Film</h2></div>
     <div class="film-card-container" 
     v-for="(movie, i) in store.movies" :key="i" >
+    <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" :alt="movie.original_name">
     <ul>
       <li >
         <ol>
@@ -51,6 +52,7 @@ export default {
 <div class="title"><h2>Serie</h2></div>
 <div class="film-card-container" 
     v-for="(serie, i) in store.series" :key="i" >
+    <img :src="'https://image.tmdb.org/t/p/w342/' + serie.poster_path" :alt="serie.original_name">
     <ul>
       <li >
         <ol>
@@ -70,11 +72,12 @@ export default {
 <style lang="scss" scoped>
 
 .main-container{
-    width: 100%;
+    width: 80%;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 0 auto;
 }
 .title{
     width: 100%;
@@ -94,7 +97,8 @@ export default {
 .film-card-container{
 background-color: black;
 color: white;
-width: 22%;
+width: 342px;
+max-height: 600px;
 display: flex;
 margin-top: 20px;
 margin-bottom: 10px;
