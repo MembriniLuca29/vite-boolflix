@@ -1,12 +1,22 @@
 <script>
+import { store } from '../store.js';
 
+export default {
+    name:"headerComponent",
+  data() {
+    return {
+      store
+    };
+  },
+  
+  };
 </script>
 
 <template>
-<div class="header-container">
-<input type="text">
-<button type="button"></button>
-</div>
+  <div class="header-container">
+<input type="text" placeholder="ricerca..." v-model="store.searchText">
+<button type="button" @click="$emit('performSearch')">cerca</button>
+  </div>
 </template>
 
 <style lang="scss" scoped>

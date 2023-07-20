@@ -14,21 +14,32 @@ export default {
   },
   data() {
     return {
-      store: store,
+      store
     };
   },
-  created() {
-    axios
-      .get("")
-      .then(response => {
-        console.log(response);
-      });
+  methods: {
+    search() {
+        console.log(this.store.searchText)
+
+        axios
+          .get("https://api.themoviedb.org/3/search/movie", {
+            params: {
+              api_key: '0d5f1072b59944dbc0378fbd0aac6382',
+              query: this.store.searchText
+            }
+          })
+          .then(res => {
+            this.store.movies = res.data.results;
+            console.log(res.data);
+        });
+  }
   },
 };
 </script>
 
 <template>
- <headerComponent/>
+ <headerComponent @performSearch="search()"/>
+ <mainComponent/>
   
 </template>
 
@@ -37,4 +48,5 @@ export default {
 body{
   margin: 0;
 }
+
 </style>
